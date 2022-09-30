@@ -4,6 +4,7 @@ import dotenv from 'dotenv'
 import cors from "cors";
 // import morgan from 'morgan'
 import authrouter from './routes/auth.js'
+import userrouter from './routes/user.js'
 
 dotenv.config()
 const app=express();
@@ -19,7 +20,7 @@ app.use(cors())
 
 // routes
 app.use("/",authrouter)
-// app.use("/",productrouter)
+app.use("/",userrouter)
 // app.use("/",cartrouter)
 // app.use("/",orderrouter)
 // app.use("/",authrouter)
