@@ -110,8 +110,10 @@ authrouter.post("/contact", async (req, res) => {
             return res.status(400).send({ error: "plzz fill the contact form...." })
         }
 
-        const usercontact = await User.findOne({ email: email })
+         const usercontact = await User.findOne({ email: email })   //email se match krwana hoo isly
 
+        // const usercontact = await User.findOne({ _id: req.userID });    id se match krwana hoo isly
+        
         // console.log(usercontact);
 
         if (usercontact) {
