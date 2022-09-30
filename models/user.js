@@ -101,7 +101,7 @@ userSchema.methods.generateauthtoken = async function (){
 
     } catch (error) {
         
-        res.send("error")
+        console.log("error")
     }
 }
 
@@ -119,7 +119,7 @@ userSchema.methods.addMessage = async function (name, email, phone, message) {
 
     } catch (error) {
         
-        res.send("error")
+        console.log("error")
     }
 }
 
