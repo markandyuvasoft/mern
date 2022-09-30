@@ -91,12 +91,12 @@ authrouter.post("/login", async (req, res) => {
 
 
 
-// authrouter.get("/contact",auth,(req,res)=>{
+authrouter.get("/contact",(req,res)=>{
 
-//     res.cookie("test","aman")
+    res.cookie("test","aman")
 
-//     res.send(req.rootuser)   //user ka full data hai rootuser mee
-// })
+    res.send(req.rootuser)   //user ka full data hai rootuser mee
+})
 
 
 authrouter.post("/contact", async (req, res) => {
@@ -110,9 +110,9 @@ authrouter.post("/contact", async (req, res) => {
             return res.status(400).send({ error: "plzz fill the contact form...." })
         }
 
-        const usercontact = await User.findOne({ _id: req.userID })
+        const usercontact = await User.findOne({ email: email })
 
-        console.log(usercontact);
+        // console.log(usercontact);
 
         if (usercontact) {
 
@@ -121,6 +121,9 @@ authrouter.post("/contact", async (req, res) => {
             await usercontact.save()
 
             res.status(200).send({ message: "user contact succesfully" })
+        }
+        else{
+            res.status(500).send({ message: "user contact not succesfully" })
         }
 
     } catch (error) {
